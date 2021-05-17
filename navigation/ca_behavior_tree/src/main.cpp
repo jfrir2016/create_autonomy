@@ -1,7 +1,7 @@
 /**
  * Software License Agreement (BSD License)
  *
- * Copyright (c) 2020, Emiliano Borghi
+ * Copyright (c) 2020, Nico
  *
  */
 // C++
@@ -18,6 +18,7 @@
 #include <ros/ros.h>
 
 #include "ca_behavior_tree/actions/movebase_client.h"
+#include "ca_behavior_tree/actions/get_location.h"
 #include "ca_behavior_tree/conditions/is_battery_level_ok.h"
 
 
@@ -38,6 +39,7 @@ int main(int argc, char **argv)
 
   factory.registerNodeType<MoveBase>("MoveBase");
   factory.registerNodeType<IsBatteryLevelOK>("IsBatteryLevelOK");
+  factory.registerNodeType<GetLoc>("GetLoc");
 
   // Trees are created at deployment-time (i.e. at run-time, but only once at
   // the beginning). The currently supported format is XML. IMPORTANT: when the
