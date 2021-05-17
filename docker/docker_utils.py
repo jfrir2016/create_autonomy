@@ -7,6 +7,7 @@ Maintainer: Emiliano Borghi (@eborghi10)
 
 import os
 import subprocess
+import getpass
 from subprocess import PIPE
 
 KNOWN_NVIDIA_ERRORS = [
@@ -36,7 +37,7 @@ def get_uid():
     return os.getuid()
 
 def get_user():
-    return os.getlogin()
+    return getpass.getuser()
 
 def create_directory(directory):
     # Check existance before creating the directory
