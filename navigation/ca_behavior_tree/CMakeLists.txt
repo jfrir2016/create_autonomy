@@ -34,6 +34,7 @@ include_directories(
 
 add_executable(${PROJECT_NAME}_node
   src/actions/movebase_client.cpp
+  src/actions/get_location.cpp
   src/conditions/is_battery_level_ok.cpp
   src/main.cpp
 )

@@ -2,9 +2,9 @@
   <include file="$(find ca_gazebo)/launch/create_empty_world.launch">
     <arg name="env" value="servicesim"/>
 
-    <arg name="pose1_x" value="6.92"/>
-    <arg name="pose1_y" value="20.8"/>
-    <arg name="pose1_Y" value="0"/>
+    <arg name="pose1_x" value="-5.5"/>
+    <arg name="pose1_y" value="12"/>
+    <arg name="pose1_Y" value="3.14"/>
 
     <arg name="pose2_x" value="-5.95"/>
     <arg name="pose2_y" value="0.28"/>
