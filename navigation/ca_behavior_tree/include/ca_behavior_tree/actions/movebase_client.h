@@ -16,6 +16,7 @@
 #include <move_base_msgs/MoveBaseAction.h>
 
 #include <behaviortree_cpp_v3/action_node.h>
+#include <std_msgs/Float32.h>
 
 
 // Custom type

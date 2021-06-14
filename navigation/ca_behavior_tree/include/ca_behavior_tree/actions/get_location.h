@@ -18,6 +18,7 @@
 #include <behaviortree_cpp_v3/action_node.h>
 
 #include "ca_behavior_tree/actions/movebase_client.h"
+#include <std_msgs/String.h>
 
 
 //----------------------------------------------------------------
@@ -29,11 +30,8 @@ namespace BT
 class GetLoc : public BT::AsyncActionNode
 {
 public:
-  GetLoc(const std::string& name, const BT::NodeConfiguration& config)
-    : BT::AsyncActionNode(name, config)
-  {
-  }
-
+  GetLoc(const std::string& name, const BT::NodeConfiguration& config);
+  ~GetLoc();
   static BT::PortsList providedPorts()
   {
     return
@@ -46,7 +44,8 @@ public:
 
 
 private:
-
+  int Active;
+  Pose2D List[10];
 };
 
 #endif  // CA_BEHAVIOR_TREE_ACTIONS_MOVEBASE_CLIENT_H
