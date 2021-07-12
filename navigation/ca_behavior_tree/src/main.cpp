@@ -20,6 +20,7 @@
 #include "ca_behavior_tree/actions/movebase_client.h"
 #include "ca_behavior_tree/actions/get_location.h"
 #include "ca_behavior_tree/conditions/is_battery_level_ok.h"
+#include "ca_behavior_tree/conditions/mate_was_returned.h"
 
 
 int main(int argc, char **argv)
@@ -39,6 +40,7 @@ int main(int argc, char **argv)
 
   factory.registerNodeType<MoveBase>("MoveBase");
   factory.registerNodeType<IsBatteryLevelOK>("IsBatteryLevelOK");
+  factory.registerNodeType<MateWasReturned>("MateWasReturned");
   factory.registerNodeType<GetLoc>("GetLoc");
 
   // Trees are created at deployment-time (i.e. at run-time, but only once at

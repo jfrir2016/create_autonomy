@@ -36,6 +36,7 @@ add_executable(${PROJECT_NAME}_node
   src/actions/movebase_client.cpp
   src/actions/get_location.cpp
   src/conditions/is_battery_level_ok.cpp
+  src/conditions/mate_was_returned.cpp
   src/main.cpp
 )
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

@@ -3,7 +3,7 @@
 
   <node name="behavior_tree" pkg="ca_behavior_tree" type="node"
         output="screen" respawn="false">
-    <param name="xml_tree" value="$(find ca_behavior_tree)/config/behavior_tree.xml"/>
+    <param name="xml_tree" value="$(find ca_behavior_tree)/config/new_tree.xml"/>
   </node>
 
 </launch>

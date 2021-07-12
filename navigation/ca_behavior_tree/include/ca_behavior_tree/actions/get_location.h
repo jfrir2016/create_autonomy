@@ -23,29 +23,83 @@
 
 //----------------------------------------------------------------
 
+using namespace std;
+
+template <class T>
+
+class Node
+{
+    public:
+        Node();
+        Node(T);
+        ~Node();
+
+        Node *next;
+        T data;
+
+        void delete_all();
+        void print();
+};
+
+template <class T>
+
+class List
+{
+    public:
+        List();
+        ~List();
+
+        Node<T> *m_head;
+        int m_num_nodes;
+
+        void add_head(T);
+        void add_end(T);
+        void add_sort(T);
+        void concat(List);
+        void del_all();
+        void del_by_data(T);
+        void del_by_position(int);
+        void fill_by_user(int);
+        void fill_random(int);
+        void intersection(List);
+        void invert();
+        void load_file(string);
+        void print();
+        void save_file(string);
+        void search(T);
+        void sort();
+};
+
 namespace BT
 {
 }  // end namespace BT
 
 class GetLoc : public BT::AsyncActionNode
 {
-public:
-  GetLoc(const std::string& name, const BT::NodeConfiguration& config);
-  ~GetLoc();
-  static BT::PortsList providedPorts()
-  {
-    return
+  private:
+    int active_;
+    List<int32_t> list;
+    Pose2D Locations[10]{{-7.0,5.9,3.14},{-8.8,5.9,3.14},{-10.5,5.8,3.14},{-8.2,9.1,3.14},{-10.0,9.1,3.14},{-11.7,9.1,3.14},{-7.0,10.4,3.14},{-8.8,10.4,3.14},{-10.5,10.4,3.14}};
+    Pose2D DefaultLoc = {-5.5,5.0,1.57};
+    ros::Subscriber sub_;
+  public:
+    GetLoc(const std::string& name, const BT::NodeConfiguration& config);
+    ~GetLoc();
+    static BT::PortsList providedPorts()
     {
-      BT::OutputPort<Pose2D>("NextLocation"),
-    };
-  }
+      return
+      {
+        BT::OutputPort<Pose2D>("NextLocation"),
+      };
+    }
 
-  BT::NodeStatus tick() override;
-
-
-private:
-  int Active;
-  Pose2D List[10];
+    BT::NodeStatus tick() override;
 };
+
+typedef struct user_t
+{
+  string name;
+  int location;
+} user;
 
 #endif  // CA_BEHAVIOR_TREE_ACTIONS_MOVEBASE_CLIENT_H
